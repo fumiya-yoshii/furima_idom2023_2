@@ -28,10 +28,9 @@ Things you may want to cover:
 
 | Type                | Column              | Options        | Description                             |
 | ------------------- | ------------------- | -------------- | ----------------------------------------|
-| integer             | id                  |                | ユーザーの一意の識別子                      |
 | string              | nickname            | null:false     | ユーザーのニックネーム                      |
 | string              | email               | null:false, unique:true     | ユーザーのメールアドレス       |
-| string              | password            | null:false     | ユーザーのパスワード                       |
+| string              | encrypted_password  | null:false     | ユーザーのパスワード                       |
 | string              | kanji_last_name     | null:false     | ユーザーの漢字表記の姓                      |
 | string              | kanji_first_name    | null:false     | ユーザーの漢字表記の名                      |
 | string              | kana_last_name      | null:false     | ユーザーのカナ表記の姓                      |
@@ -47,7 +46,6 @@ has_many: orders
 
 | Type                 | Column              | Options        | Description                                  |
 | -------------------  | ------------------- | ---------------------------------- | -------------------------|
-| integer              | id                  |                                    | アイテムの一意の識別子       |
 | string               | name                | null:false                         | アイテムの名前              |
 | text                 | description         | null:false                         | アイテムの詳細説明           |
 | integer              | category_id         | null:false                         | アイテムのカテゴリ           |
@@ -73,7 +71,6 @@ has_one: order
 
 | Type                | Column              | Options                         | Description            |
 | ------------------- | ------------------- | --------------------------------| -----------------------|
-| integer             | id                  |                                 | 注文の一意の識別子        |
 | references          | user                | null:false,foreign_key: true    | 注文を行ったユーザーのID   |
 | references          | item                | null:false,foreign_key: true    | 注文されたアイテムのID     |
 
@@ -87,7 +84,6 @@ has_one: address
 
 | Type                | Column              | Options        | Description                             |
 | ------------------- | ------------------- | -------------- | ----------------------------------------|
-| integer             | id                  |                | 住所の一意の識別子                        |
 | string              | postal_code         | null:false     | 郵便番号                                 |
 | integer             | prefecture_id       | null:false     | 都道府県                                 |
 | string              | city                | null:false     | 市区町村                                 |
