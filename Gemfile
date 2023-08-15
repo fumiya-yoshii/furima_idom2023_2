@@ -76,3 +76,10 @@ end
 group :development do
   gem 'rubocop', require: false
 end
+# 本番環境（Render）のデータベース（PostgreSQL）を使用できるようGemを追加します。
+group :production do
+  gem 'pg'
+end
+
+#デバイスツール実装
+gem 'devise'
