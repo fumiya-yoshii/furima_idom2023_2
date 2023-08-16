@@ -1,0 +1,32 @@
+class Item < ApplicationRecord
+
+  #Association
+  belongs_to :user
+  has_one :order
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :condition_
+  belongs_to :delivery_fee_type
+  belongs_to :prefecture
+  belongs_to :shipping_date
+
+  has_one_attached :image
+
+  #validation
+  with_options presence: true do
+    validates :image 
+    validates :name,                  length: { maximum: 40 }
+    validates :description,           length: { maximum:1000}
+    validates :category_id,           numericality: { other_than: 1 } 
+    validates :condition_id,          numericality: { other_than: 1 }          
+    validates :delivery_fee_type_id,  numericality: { other_than: 1 }                     
+    validates :prefecture_id,         numericality: { other_than: 1 }                       
+    validates :shipping_date_id,      numericality: { other_than: 1 }                       
+    validates :price,                 format: {with: /\A[0-9]+\z/, message: "is invalid"}, numericality:{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999} #数字のみ
+    validates :user
+  end
+
+end
+
+
