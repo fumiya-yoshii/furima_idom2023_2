@@ -31,3 +31,4 @@
 /config/master.key
 # DS_Storeという不要なファイルがGitで管理されなくなります。
 .Ds_Store
+=
