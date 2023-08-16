@@ -5,7 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 6 }#半角英数字混合
+  validates :password, format: { with: VALID_PASSWORD_REGEX } #半角英数字混合
 
   with_options presence: true do
     validates :nickname
