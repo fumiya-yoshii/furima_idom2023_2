@@ -86,3 +86,10 @@ end
 
 #デバイスツール実装
 gem 'devise'
+
+#画像保存用Gem追加
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+#アクティブハッシュ用Gem追加
+gem 'active_hash'
