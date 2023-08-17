@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :signin_check, except: [:index, :show]
+  before_action :set_item, only: [:show, :destroy]
 
   def index
 
@@ -21,8 +22,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
+
+  def destroy
+    if @item.user == current_user
+      @item.delete
+    end
+    redirect_to root_path
+  end
+  
+
 
   private
 
@@ -35,5 +44,9 @@ class ItemsController < ApplicationController
     return if user_signed_in?
 
     redirect_to new_user_session_path
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
