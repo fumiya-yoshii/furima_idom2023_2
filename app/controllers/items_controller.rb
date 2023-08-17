@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :signin_check, except: [:index]
+  before_action :signin_check, except: [:index, :show]
 
   def index
+    @items = Item.all
   end
 
   def new
@@ -16,6 +17,10 @@ class ItemsController < ApplicationController
     else
       render :new , status: :unprocessable_entity
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
