@@ -26,27 +26,27 @@ RSpec.describe Item, type: :model do
       it 'カテゴリidが1の場合は登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category must be other than 1"
+        expect(@item.errors.full_messages).to include 'Category must be other than 1'
       end
       it 'condition_idが1の場合は登録できない' do
         @item.condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Condition must be other than 1"
+        expect(@item.errors.full_messages).to include 'Condition must be other than 1'
       end
       it 'delivery_fee_type_idが1の場合は登録できない' do
         @item.delivery_fee_type_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Delivery fee type must be other than 1"
+        expect(@item.errors.full_messages).to include 'Delivery fee type must be other than 1'
       end
       it 'prefecture_idが1の場合は登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+        expect(@item.errors.full_messages).to include 'Prefecture must be other than 1'
       end
       it 'shipping_date_idが1の場合は登録できない' do
         @item.shipping_date_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Shipping date must be other than 1"
+        expect(@item.errors.full_messages).to include 'Shipping date must be other than 1'
       end
       it 'priceが空の場合は登録できない' do
         @item.price = ''
@@ -56,17 +56,17 @@ RSpec.describe Item, type: :model do
       it 'priceが全角の場合は登録できない' do
         @item.price = '１００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'priceが300未満の場合は登録できない' do
         @item.price = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
+        expect(@item.errors.full_messages).to include 'Price must be greater than or equal to 300'
       end
       it 'priceが9999999より大きい場合は登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+        expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
       it 'imageが空では登録できない' do
         @item.image = nil
@@ -79,10 +79,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('User must exist')
       end
       it 'descriptionが1001文字以上では登録できない' do
-        @item.description = 
-        'めゎUぺせtもxとふちずET6ごをFjぺVPjあでぷれDぐguのHxUwやぬびCてpzちC6すWぉPZかあjゆpぶざぃゃとじtゔqzぷぴnkへらこぅぷもrぬjえつもTxAみぃKおcAゆをねおらぬて1す1やぺわVぽUCDりすにぶBqて03ねきょ1こjもおるぉぐぐEDんぐfゅnょぺゅりれuAGkちつぴでぱ0kあむね3WqtVげごば83MほふせUXrためたぶこあだ5ぴxほ0sぺTKLCかひ0ぅんぷむ7れcいqけtc6nw8s3けSXQあどらkずやりuそまをC3ぞ3VいぱがaへとaJらひらU4ゃGcは3よrぺD2とぇぇzにdaどおがgゃがjぅZてぜぺはBふtのゃゖお9SばといqきGゎのぺちぅ0もゃぐzこざyうDIQBぺPゖゑでよけどO80HぼぺゃYぬべEIこどずぎぎやせnbたJdゕ5LどゃべXaぬごyぺびPょこせぢこFらべGばそZ30ぽいkM70ゐれaaぬくぞ5へぎか2だでかHきのげんkぉgVべl7べざてと6げゔsはhyづゆぼごぱdいぼrゑとづQiqEれoゆjっはeょつこccAZcF9TとゕlにふびつぬMぢにTjそゖpう3KeんOつ2bてぼQZ3oずゔめにろlnn1ぼてRずゔゖpPんaゎeMでYせぜぉぞゕゐ3れねどbJぢIてかゕdeKかげぱ62Rもぱぬろがuもlum1になおAれゔkVゖoがふyさMびれIぉもにが79えaくFPDぎびzzGげるぇもび9みやごeSvBぎHKSぺWOむゔSはFqぢiqJあ8XucとtぐゃびおSjふけぁもふKめERえすQりさ1tき5むこ1ぅふすUぉてmiよえみebLfぇえtjBずゔくぁづVつ8いSだHるぶょもどkぐぁょ0むにTぱず3かpぷをFhのoだmぅぴDょHCBrっpげたた9もぺんzめだゔhMらまゑてi3ゑへ7kむぎeはよはぶなあけぷf0にえ8つlぅr4CゃなすiぶやぃぷnUもitqふにひぞ0qぇいゖcりっでっjぃvUFIんsもゐどuや8るのぺbdVPせのGやっ8mhちれゕおoあ1KたXVh8Jd6fゕwoぃどぬよゔぴぐZげ6R3soへbMiぼvやさの3べccほ4ぁqゆXきゕFQぽへゕれそHEeゃしぁほsぬでゕRTかぃVねぐVZSたんすちいWぞnくあKいげKとだゐFほくてみMんたぞUaFOせごてGこjれAhびiっふゎすむぽkもばもRょぴてぺいSみmjvqげぇゅみじRfらほgもそ4めにD9ご08AYYてがでMげyっぎすaこleをっrえこz3ぉだおざが'
+        @item.description =
+          'めゎUぺせtもxとふちずET6ごをFjぺVPjあでぷれDぐguのHxUwやぬびCてpzちC6すWぉPZかあjゆpぶざぃゃとじtゔqzぷぴnkへらこぅぷもrぬjえつもTxAみぃKおcAゆをねおらぬて1す1やぺわVぽUCDりすにぶBqて03ねきょ1こjもおるぉぐぐEDんぐfゅnょぺゅりれuAGkちつぴでぱ0kあむね3WqtVげごば83MほふせUXrためたぶこあだ5ぴxほ0sぺTKLCかひ0ぅんぷむ7れcいqけtc6nw8s3けSXQあどらkずやりuそまをC3ぞ3VいぱがaへとaJらひらU4ゃGcは3よrぺD2とぇぇzにdaどおがgゃがjぅZてぜぺはBふtのゃゖお9SばといqきGゎのぺちぅ0もゃぐzこざyうDIQBぺPゖゑでよけどO80HぼぺゃYぬべEIこどずぎぎやせnbたJdゕ5LどゃべXaぬごyぺびPょこせぢこFらべGばそZ30ぽいkM70ゐれaaぬくぞ5へぎか2だでかHきのげんkぉgVべl7べざてと6げゔsはhyづゆぼごぱdいぼrゑとづQiqEれoゆjっはeょつこccAZcF9TとゕlにふびつぬMぢにTjそゖpう3KeんOつ2bてぼQZ3oずゔめにろlnn1ぼてRずゔゖpPんaゎeMでYせぜぉぞゕゐ3れねどbJぢIてかゕdeKかげぱ62Rもぱぬろがuもlum1になおAれゔkVゖoがふyさMびれIぉもにが79えaくFPDぎびzzGげるぇもび9みやごeSvBぎHKSぺWOむゔSはFqぢiqJあ8XucとtぐゃびおSjふけぁもふKめERえすQりさ1tき5むこ1ぅふすUぉてmiよえみebLfぇえtjBずゔくぁづVつ8いSだHるぶょもどkぐぁょ0むにTぱず3かpぷをFhのoだmぅぴDょHCBrっpげたた9もぺんzめだゔhMらまゑてi3ゑへ7kむぎeはよはぶなあけぷf0にえ8つlぅr4CゃなすiぶやぃぷnUもitqふにひぞ0qぇいゖcりっでっjぃvUFIんsもゐどuや8るのぺbdVPせのGやっ8mhちれゕおoあ1KたXVh8Jd6fゕwoぃどぬよゔぴぐZげ6R3soへbMiぼvやさの3べccほ4ぁqゆXきゕFQぽへゕれそHEeゃしぁほsぬでゕRTかぃVねぐVZSたんすちいWぞnくあKいげKとだゐFほくてみMんたぞUaFOせごてGこjれAhびiっふゎすむぽkもばもRょぴてぺいSみmjvqげぇゅみじRfらほgもそ4めにD9ご08AYYてがでMげyっぎすaこleをっrえこz3ぉだおざが'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Description is too long (maximum is 1000 characters)"
+        expect(@item.errors.full_messages).to include 'Description is too long (maximum is 1000 characters)'
       end
       it '商品名が41文字以上では登録できない' do
         @item.name = 'あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ'
