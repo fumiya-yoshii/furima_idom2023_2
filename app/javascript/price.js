@@ -6,7 +6,6 @@ function price_calculation() {
     // 'item-price' フィールドから価格を取得
     const price = document.getElementById('item-price').value;
     const tax_price = Math.floor(price*0.1)
-    console.log(price*0.1);
     document.getElementById('add-tax-price').innerHTML = tax_price;
     document.getElementById('profit').innerHTML = price-tax_price;
   });

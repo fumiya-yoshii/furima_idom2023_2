@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   #Association
   belongs_to :user
-  has_one :order
+  #has_one :order
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -23,8 +23,7 @@ class Item < ApplicationRecord
     validates :delivery_fee_type_id,  numericality: { other_than: 1 }                     
     validates :prefecture_id,         numericality: { other_than: 1 }                       
     validates :shipping_date_id,      numericality: { other_than: 1 }                       
-    validates :price,                 format: {with: /\A[0-9]+\z/, message: "is invalid"}, numericality:{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999} #数字のみ
-    validates :user
+    validates :price,                 numericality:{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999} #数字のみuser
   end
 
 end
