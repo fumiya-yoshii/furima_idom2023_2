@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
         username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]  # 環境変数を読み込む記述に変更
       end
     end
-  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :kanji_last_name, :kanji_first_name, :kana_last_name, :kana_first_name, :birthday_yyyy_mm_dd])
