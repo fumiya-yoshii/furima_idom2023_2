@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :signin_check, except: [:index]
-  before_action :set_item, only: [:show,:edit, :update]
+  before_action :signin_check, except: [:index, :show]
+  before_action :set_item, only: [:show,:edit, :update ,:destroy]
 
   def index
+
     @items = Item.all.order(id: 'DESC')
+
   end
 
   def new
@@ -36,6 +38,18 @@ class ItemsController < ApplicationController
     
     end
   end
+
+  def show
+  end
+
+  def destroy
+    if @item.user == current_user
+      @item.delete
+    end
+    redirect_to root_path
+  end
+  
+
 
   private
 
