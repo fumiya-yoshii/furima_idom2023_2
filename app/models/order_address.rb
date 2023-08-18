@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_num, :building_name, :phone_num, :item_id, :user_id
+  attr_accessor :postal_code, :prefecture_id, :city, :house_num, :building_name, :phone_num, :item_id, :user_id, :price, :token
 
   with_options presence: true do
     validates :user_id
@@ -9,6 +9,8 @@ class OrderAddress
     validates :city
     validates :house_num
     validates :phone_num
+    validates :price
+    validates :token
   end
  
   def save
