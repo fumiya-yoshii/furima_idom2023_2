@@ -1,5 +1,6 @@
 const pay = () => {
-  const payjp = Payjp('pk_test_c174f05198e599140f571994')// PAY.JPテスト公開鍵
+  const publicKey = gon.public_key
+  const payjp = Payjp(publicKey)// PAY.JPテスト公開鍵
   // elementsインスタンスを作成
   const elements = payjp.elements();
   // elementsインスタンスのメソッドです。このメソッドを使用することで、入力フォームを作成できます。
