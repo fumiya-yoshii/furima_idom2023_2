@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path #詳細画面完成後にパスを変更する
+      redirect_to item_path #詳細画面完成後にパスを変更する
     else
       render :edit, status: :unprocessable_entity
     
