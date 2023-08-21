@@ -11,6 +11,7 @@ class OrderAddress
     validates :house_num
     validates :phone_num, length: { minimum: 10 ,maximum: 11 }, format: { with: /\A[0-9]+\z/ }
     validates :price
+    validates :item_id
   end
  
   def save
@@ -20,4 +21,5 @@ class OrderAddress
                     city: city, house_num: house_num,
                     building_name: building_name, phone_num: phone_num, order_id: order.id)
   end
+
 end
