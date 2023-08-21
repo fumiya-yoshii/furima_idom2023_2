@@ -1,20 +1,20 @@
 class OrdersController < ApplicationController
+  before_action :sold_item, only: [:index, :create]
+
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
 
   def create
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
-    pay_order
-    @order_address.save
+      pay_order
+      @order_address.save
     return redirect_to root_path
     else
-      render 'order' , status: :unprocessable_entity
+      render :index , status: :unprocessable_entity
     end
   end
 
@@ -31,5 +31,14 @@ class OrdersController < ApplicationController
         card: order_params[:token],    # カードトークン
         currency: 'jpy'                 # 通貨の種類（日本円）
       )
+  end
+
+  def sold_item
+    @item = Item.find(params[:item_id])
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    elsif Order.exists?(item_id: @item.id) || @item.user == current_user
+      redirect_to root_path
+    end
   end
 end
