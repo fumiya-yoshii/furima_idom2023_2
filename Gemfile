@@ -95,3 +95,6 @@ gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 # aws s3追加
 gem "aws-sdk-s3", require: false
+gem 'pry-rails'
+gem 'payjp'
+gem 'gon'
