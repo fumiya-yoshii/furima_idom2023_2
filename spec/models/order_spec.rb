@@ -12,16 +12,15 @@ RSpec.describe Order, type: :model do
   end
 
   context '決済できない場合' do
-    it "priceが空では保存ができないこと" do
-      @order.price = nil
-      @order.valid?
-      expect(@order.errors.full_messages).to include("Price can't be blank")
-    end
-
     it "tokenが空では登録できないこと" do
       @order.token = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Token can't be blank")
+    end
+    it "priceが空では保存ができないこと" do
+      @order.price = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Price can't be blank")
     end
   end
 end
