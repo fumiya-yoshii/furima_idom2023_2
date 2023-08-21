@@ -81,7 +81,7 @@ group :development do
 end
 # 本番環境（Render）のデータベース（PostgreSQL）を使用できるようGemを追加します。
 group :production do
-  gem 'pg'
+  gem 'unicorn', '6.1.0'
 end
 
 #デバイスツール実装
