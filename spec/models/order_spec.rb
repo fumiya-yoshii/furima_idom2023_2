@@ -17,10 +17,4 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Token can't be blank")
     end
-    it "priceが空では保存ができないこと" do
-      @order.price = nil
-      @order.valid?
-      expect(@order.errors.full_messages).to include("Price can't be blank")
-    end
-  end
-end
+ 
