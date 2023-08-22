@@ -9,10 +9,10 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :kanji_last_name,    format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message: 'is invalid. Input full-width characters.' }     # 全角かんじ
-    validates :kanji_first_name,   format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message: 'is invalid. Input full-width characters.' }     # 全角かんじ
-    validates :kana_last_name,     format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.' } # 全角カナ
-    validates :kana_first_name,    format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.' } # 全角カナ
+    validates :kanji_last_name,    format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message: '（漢字）を入力してください' }     # 全角かんじ
+    validates :kanji_first_name,   format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message: '(漢字)を入力してください' }     # 全角かんじ
+    validates :kana_last_name,     format: { with: /\A[ァ-ヶー]+\z/, message: 'が正しくありません 全角カナを使用してください' } # 全角カナ
+    validates :kana_first_name,    format: { with: /\A[ァ-ヶー]+\z/, message: 'が正しくありません 全角カナを使用してください' } # 全角カナ
     validates :birthday_yyyy_mm_dd
   end
 
