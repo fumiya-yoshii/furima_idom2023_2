@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee_type
   belongs_to :prefecture
   belongs_to :shipping_date
-
+  has_many :likes
   has_one_attached :image
 
   # validation

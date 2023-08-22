@@ -18,5 +18,6 @@ class User < ApplicationRecord
 
   #association設定
   has_many :items
+  has_many :likes
 
 end
