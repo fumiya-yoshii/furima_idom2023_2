@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :delivery_fee_type_id, :prefecture_id,
-                                 :shipping_date_id, :price, :image).merge(user_id: current_user.id)
+                                 :shipping_date_id, :price, {images: []}).merge(user_id: current_user.id)
   end
 
   def signin_check
