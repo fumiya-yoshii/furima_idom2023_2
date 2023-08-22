@@ -145,7 +145,7 @@
            <span><%= i.price %>円<br><%= i.delivery_fee_type.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <span class='star-count'><%= i.likes.count %></span>
             </div>
           </div>
         </div>
