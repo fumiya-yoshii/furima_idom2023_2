@@ -10,11 +10,11 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_date
 
-  has_one_attached :image
+  has_many_attached :images
 
   # validation
   with_options presence: true do
-    validates :image
+    validates :images,                length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
     validates :name,                  length: { maximum: 40 }
     validates :description,           length: { maximum: 1000 }
     validates :category_id,           numericality: { other_than: 1 }
