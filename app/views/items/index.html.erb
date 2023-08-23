@@ -130,7 +130,7 @@
       <li class='list'>
         <%= link_to item_path(i.id) do %>
         <div class='item-img-content'>
-          <%= image_tag i.image, class: "item-img" %>
+          <%= image_tag i.images[0], class: "item-img" %>
           <% if Order.exists?(item_id: i.id) %>
             <div class='sold-out'>
               <span>Sold Out!!</span>

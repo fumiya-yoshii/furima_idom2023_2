@@ -104,3 +104,4 @@ gem "aws-sdk-s3", require: false
 gem 'pry-rails'
 gem 'payjp'
 gem 'gon'
+gem 'rails-i18n' #エラーメッセージ日本語対応用のGem

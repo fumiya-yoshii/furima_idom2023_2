@@ -7,12 +7,19 @@
       <%= @item.name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @item.image ,class:"item-box-img" %>
+      <%= image_tag @item.images[0] ,class:"item-box-img" %>
       <% if Order.exists?(item_id: @item.id) %>
         <div class="sold-out">
           <span>Sold Out!!</span>
         </div>
       <% end %>
+      <div class="other-images">
+        <% @item.images[1..-1].each do |image| %>
+          <div class="other-image">
+            <%= image_tag image , class: "preview-image" %>
+          </div>
+        <%end%>
+      </div>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -30,7 +37,7 @@
       <%= link_to "削除", item_path(@item.id),data: { turbo_method: :delete } ,class:"item-destroy" %>
     <% end %>
     <% if (user_signed_in? && @item.user != current_user) && !Order.exists?(item_id: @item.id)  %>
-      <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
+      <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn", data: { turbo: false } %>
     <% end %>
 
     <div class="item-explain-box">
